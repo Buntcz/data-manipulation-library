@@ -24,7 +24,17 @@ function flatten(nestedArray) { // given a nested array returns a normal array w
 } // works ok for now but It's only for two Dimentional arrays, will work out a version for multi size too.
 
 function uniq(array) { // removes duplicates from an array.
-    
+    let newArray = [];
+    array.forEach(element => {
+        if(!newArray.includes(element)) {
+            newArray.push(element)
+        }
+    })
+    return newArray;
 }
 
-export { chunk, flatten, uniq }
+function zip(...arrays) {
+return Array.from({length: Math.max(...arrays.map(a => a.length))}, (_, i) => arrays.map(a => a[i]) )
+}
+
+export { chunk, flatten, uniq, zip }
