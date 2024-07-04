@@ -7,11 +7,13 @@ function debounce(func,wait) {
 }
 
 function throttle(func,wait) {
-    let timer;
-    return function() {
-        clearInterval(timer)
-        timer = setInterval(func,wait)
-    }
+    let timer =  null;
+    return(...args) => {
+        func(...args);
+        timer = setTimeout(() => {
+            timer = null;
+        }, wait)
+   } 
 }
 
 export {debounce,throttle}

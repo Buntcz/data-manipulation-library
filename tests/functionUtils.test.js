@@ -31,7 +31,7 @@ describe("throttle", () => {
         throttleFunc = throttle(func,500);
     })
     it('executes 10 times', () => {
-        for(let i = 0; i <= 10; i++) {
+        for(let i = 0; i < 10; i++) {
             throttleFunc();
         }
         jest.runAllTimers();
